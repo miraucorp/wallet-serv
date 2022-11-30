@@ -1,0 +1,63 @@
+{
+  "name": "bc-wallet-service",
+  "version": "1.0.0",
+  "description": "BC Wallet service",
+  "main": "index.js",
+  "keywords": [],
+  "author": "BC Domain",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.18.3"
+  },
+  "dependencies": {
+    "au-helpers": "git+ssh://git@github.com:aucorp/au-helpers.git",
+    "aws-sdk": "^2.1059.0",
+    "axios": "^0.25.0",
+    "big.js": "^6.1.1",
+    "bunyan": "^1.8.15",
+    "date-fns": "^2.28.0",
+    "dotenv": "^14.2.0",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.1.1",
+    "koa2-cors": "^2.0.6",
+    "node-cache": "^5.1.2",
+    "uuid": "^8.3.2",
+    "validatorjs": "^3.22.1",
+    "source-map-support": "^0.5.21",
+    "typescript": "^4.5.4",
+    "@types/big.js": "^6.1.2",
+    "@types/bunyan": "^1.8.8",
+    "@types/jest": "^27.4.0",
+    "@types/koa": "^2.13.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa2-cors": "^2.0.2",
+    "@types/uuid": "^8.3.4"
+  },
+  "devDependencies": {
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^25.7.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.4.0"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "test": "jest --forceExit",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "npm run build && node -r source-map-support/register ./dist/index.js",
+    "starteb": "env $(tfconfig dotenv ${APP_ENV}) node -r source-map-support/register ./dist/index.js",
+    "lint": "eslint --env node \"./**/*.ts\" \"./**/*.js\" --ignore-pattern node_modules/",
+    "dev:start": "node -r dotenv/config -r ts-node/register ./index.js | bunyan -o short"
+  }
+}

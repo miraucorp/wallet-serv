@@ -1,0 +1,55 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.js"
+      ],
+      "excludedFiles":["dist/**/*.js"],
+      "parserOptions": {
+        "ecmaVersion": 11
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "prettier/prettier": ["error", {
+          "printWidth": 120
+        }]
+      }
+    },
+    {
+      "files": [
+        "**/*.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "prettier"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "extends": [
+        "airbnb-typescript/base",
+        "plugin:prettier/recommended",
+        "eslint:recommended",
+        "plugin:import/recommended"
+      ],
+      "rules": {
+        "no-console": 0,
+        "import/prefer-default-export": 0,
+        "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
+        "@typescript-eslint/no-throw-literal": 0,
+        "prettier/prettier": ["error", {
+          "printWidth": 120
+        }]
+      }
+    }
+  ]
+}
